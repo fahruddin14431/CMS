@@ -14,7 +14,7 @@ if($row==TRUE){
 	$_SESSION['user']=$user;
 	header("location:../Administrator/index.php");
 }else{
-	echo "gagal login";
+	header("location:gagal_login.php");
 }
 
 
