@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <div class="wrapper">
+  <div class="container wrapper">
     <form class="form-signin" method="POST" action="proses_login.php">       
       <h2 class="form-signin-heading text-center">Login <small>cms</small></h2>
         <div class="form-group">
