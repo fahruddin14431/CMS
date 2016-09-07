@@ -107,6 +107,7 @@ $result = $koneksi->query($sql);
 
       <!-- Main content -->
       <section class="content">
+        <div class="row">
           <?php 
           if ((isset($_GET['master']))||(isset($_GET['laporan']))) {
 
@@ -127,7 +128,7 @@ $result = $koneksi->query($sql);
             include 'beranda.php';
           }
            ?>
-
+        </div>
       </section>
       <!-- end content -->
 

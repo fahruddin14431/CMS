@@ -15,19 +15,33 @@ include '../Config/koneksi.php';
     }
  ?>
 
-<div class="container">
-	<h3><b>Tambah Daftar Kategori</b></h3>
-	<br>
-		<form class="form col-xs-12 col-sm-4 col-md-3" method="POST" action="Kategori/tambah_kategori.php">
-			<div class="form-group">
-	          	<label>Kode Kategori</label>
-	          	<input type="text" class="form-control" name="kode_kategori" placeholder="Kode Kategori" value="<?php echo $kode_otomatis; ?>" readonly  />
+<div class="container col-md-6">
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-tittle"><b>Tambah Daftar Kategori</b></h3>
+	</div>
+	<div class="panel-body">
+		<form class="form col-xs-12 col-sm-4 col-md-8" method="POST" action="Kategori/tambah_kategori.php">
+			<div class="row">
+				<div class="form-group col-xs-8 col-sm-9 col-md-6">
+		          	<label>Kode Kategori</label>
+		          	<input type="text" class="form-control" name="kode_kategori" placeholder="Kode Kategori" value="<?php echo $kode_otomatis; ?>" readonly  />
+		        </div>
 	        </div>
-	        <div class="form-group">
-	          	<label>Kategori</label>
-	          	<input type="text" class="form-control" name="kategori" placeholder="Kategori" maxlength="30" autocomplete="off" required autofocus=""/>
+	        <div class="row">
+		        <div class="form-group col-xs-9 col-md-12">
+		          	<label>Kategori</label>
+		          	<input type="text" class="form-control" name="kategori" placeholder="Kategori" maxlength="30" autocomplete="off" autofocus=""/>
+		        </div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-3">
+	        		<input type="submit" value="Simpan" class="btn btn-success "/>
+	        	</div>
 	        </div>
-	        	<input type="submit" value="Simpan" class="btn btn-success"/>
 		</form>
+	</div>
+</div>
 </div>
 
