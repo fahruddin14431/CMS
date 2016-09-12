@@ -19,7 +19,10 @@ include '../Config/koneksi.php';
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-tittle"><b>Tambah Daftar Kategori</b></h3>
+		<h3 class="panel-tittle">
+			<a href="index.php?master=kategori"><i class="fa fa-arrow-circle-left fa-lg"></i></a>
+			<b>Tambah Daftar Kategori</b>
+		</h3>
 	</div>
 	<div class="panel-body">
 		<form class="form col-xs-12 col-sm-4 col-md-8" method="POST" action="Kategori/tambah_kategori.php">
@@ -32,16 +35,18 @@ include '../Config/koneksi.php';
 	        <div class="row">
 		        <div class="form-group col-xs-9 col-md-12">
 		          	<label>Kategori</label>
-		          	<input type="text" class="form-control" name="kategori" placeholder="Kategori" maxlength="30" autocomplete="off" autofocus=""/>
+		          	<input type="text" class="form-control" name="kategori" placeholder="Kategori" maxlength="30" autocomplete="off" autofocus="" required/>
 		        </div>
 		    </div>
 		    <div class="row">
-		    	<div class="col-md-3">
-	        		<input type="submit" value="Simpan" class="btn btn-success "/>
+		    	<div class="col-md-12">
+	        		<button type="submit" class="btn btn-success"><i class="fa fa-check fa-lg"> Simpan</i></button>
 	        	</div>
 	        </div>
 		</form>
 	</div>
 </div>
+
 </div>
+
 

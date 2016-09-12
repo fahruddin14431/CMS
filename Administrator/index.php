@@ -2,7 +2,7 @@
 session_start();
 $user_name = $_SESSION['user'];
 if(empty($user_name)){
-  header("location:../Login/login.php");
+  header("location:../Login/gagal_login.php");
 }
 
 include '../Config/koneksi.php';
@@ -28,6 +28,8 @@ $result = $koneksi->query($sql);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../assets/bootstrap/css/skins/_all-skins.min.css">
+  <!-- jQuery 2.2.0 -->
+  <script src="../assets/plugins/jQuery/jQuery-2.2.0.min.js"></script>
   
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -143,8 +145,6 @@ $result = $koneksi->query($sql);
 
 </div>
 <!-- ./wrapper -->
-<!-- jQuery 2.2.0 -->
-<script src="../assets/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
