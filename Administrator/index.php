@@ -7,8 +7,7 @@ if(empty($user_name)){
 
 include '../Config/koneksi.php';
 
-$sql ="SELECT * FROM tb_admin WHERE user='$user_name'";
-$result = $koneksi->query($sql);
+$result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
 
 ?>
 
@@ -64,7 +63,7 @@ $result = $koneksi->query($sql);
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="text-center">
-          <img src="../assets/img/me.jpg" width="120px" height="115px" class="img-circle">
+          <img src="../assets/img/me.jpg" width="125px" height="115px" class="img-circle">
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -124,7 +123,13 @@ $result = $koneksi->query($sql);
                 }
             elseif ($_GET['master']=='form_edit_kategori') {
                     include 'Kategori/form_edit_kategori.php';
-                }                
+                }
+            elseif ($_GET['master']=='form_tambah_berita') {
+                    include 'Berita/form_tambah_berita.php';
+                }
+            elseif ($_GET['master']=='form_edit_berita') {
+                    include 'Berita/form_edit_berita.php';
+                }                                
 
           }else{
             include 'beranda.php';

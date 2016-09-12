@@ -1,5 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../Assets/plugins/datatables/dataTables.bootstrap.css">
-
 <script src="../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../Assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
 

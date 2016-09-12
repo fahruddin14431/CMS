@@ -1,26 +1,83 @@
-<html>
-<head>
-	<meta charset="utf-8">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Berita</title>
-</head>
-<body>
+<link rel="stylesheet" type="text/css" href="../Assets/plugins/datatables/dataTables.bootstrap.css">
+<script src="../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../Assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
-	<h2>Halaman Berita</h2>
+<?php 
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+include '../Config/koneksi.php';
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+$sql = "SELECT 	b.id_berita, 
+				b.judul_berita, 
+		        k.nama_kategori,
+		        b.tanggal,
+		        b.terbitkan,
+		        b.keterangan,
+		        a.nama_admin
+		FROM tb_berita b, tb_admin a, tb_kategori k
+		WHERE b.id_kategori = k.id_kategori
+		AND b.id_admin = a.id_admin
+		ORDER BY b.id_berita ASC";
+$result=$koneksi->query($sql);
 
-</body>
-</html>
+//no
+$n = 1 ;
+
+?>
+
+<div class="container col-md-12">
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-tittle"><b>Daftar Berita</b></h3>
+		</div>
+
+	<div class="panel-body">
+		<?php 
+			if($row = $result->num_rows<=0){
+			 echo 'Data Tidak tersedia '.'<b><a href="index.php?master=form_tambah_berita">Tambah Data</a></b>'; } else { ?>
+
+		<a href="index.php?master=form_tambah_berita" class="btn btn-success "><i class="fa fa-plus-circle"></i> Tambah</a>
+		<br><br>
+		<table id="table-data" class="table table-bordered table-striped table-hover">
+			<thead>
+				<th>No</th>
+				<th>Judul</th>
+				<th>Kategori</th>
+				<th>Tanggal</th>
+				<th>Terbit</th>	
+				<th>Admin</th>
+				<th>Aksi</th>
+				<th>Aksi</th>
+			</thead>
+
+			<tbody>
+				<?php while ($row = $result->fetch_object()) { ?>
+				<tr>
+					<td><?php echo $n++."." ?></td>
+					<td><?php echo $row->judul_berita; ?></td>
+					<td><?php echo $row->nama_kategori; ?></td>
+					<td><?php echo $row->tanggal; ?></td>
+					<td><?php echo $row->terbitkan; ?></td>
+					<td><?php echo $row->nama_admin; ?></td>
+					<td><a href="index.php?master=form_edit_berita&ambil_id_berita=<?php echo $row->id_berita; ?>" class="btn btn-warning"><i class="fa fa-pencil-square"></i> Edit</a></td>
+					<td><a href="berita/hapus_berita.php?ambil_id_berita=<?php echo $row->id_berita; ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+
+	</div>
+
+</div>
+
+</div>
+<?php } ?>
+
+<script>
+  $(document).ready(function(){
+    $('#table-data').DataTable( {
+    	responsive: true
+    }
+    	);
+});
+</script>
