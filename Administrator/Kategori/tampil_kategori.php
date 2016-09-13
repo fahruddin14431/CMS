@@ -59,9 +59,13 @@ $n = 1 ;
 
 <script>
   $(document).ready(function(){
-    $('#table-data').DataTable( {
-    	responsive: true
-    }
-    	);
+    $('#table-data').DataTable({
+        rowReorder: true,
+        columnDefs: [
+            { orderable: false, className: 'reorder', targets: 3 },
+            { orderable: false, className: 'reorder', targets: 4 },
+            { orderable: true, targets: '_all' }
+        ]
+    } );
 });
-  </script>
+</script>

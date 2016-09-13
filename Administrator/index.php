@@ -20,10 +20,10 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/bootstrap/css/AdminLTE.css">
   <!-- font awesome -->
   <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../assets/bootstrap/css/AdminLTE.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../assets/bootstrap/css/skins/_all-skins.min.css">
@@ -150,10 +150,6 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
 
 </div>
 <!-- ./wrapper -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->

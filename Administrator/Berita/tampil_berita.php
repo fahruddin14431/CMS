@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../Assets/plugins/datatables/dataTables.bootstrap.css">
 <script src="../Assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../Assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../Assets/plugins/datatables/dataTables.rowReorder.min.js"></script>
 
 <?php 
 
@@ -75,9 +76,13 @@ $n = 1 ;
 
 <script>
   $(document).ready(function(){
-    $('#table-data').DataTable( {
-    	responsive: true
-    }
-    	);
+    $('#table-data').DataTable({
+        rowReorder: true,
+        columnDefs: [
+            { orderable: false, className: 'reorder', targets: 6 },
+            { orderable: false, className: 'reorder', targets: 7 },
+            { orderable: true, targets: '_all' }
+        ]
+    } );
 });
 </script>
