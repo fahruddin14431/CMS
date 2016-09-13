@@ -25,7 +25,7 @@ include '../Config/koneksi.php';
 		</h3>
 	</div>
 	<div class="panel-body">
-		<form class="form col-xs-12 col-sm-4 col-md-12" method="POST" action="berita/tambah_berita.php" enctype="multipart/form-data">
+		<form class="form col-xs-12 col-sm-4 col-md-12" method="POST" action="Berita/tambah_berita.php" enctype="multipart/form-data">
 			<div class="row">
 				<div class="form-group col-xs-12 col-sm-9 col-md-4">
 		          	<label>Kode berita</label>
@@ -35,7 +35,7 @@ include '../Config/koneksi.php';
 	        <div class="row">
 		        <div class="form-group col-xs-12 col-md-12">
 		          	<label>Judul</label>
-		          	<input type="text" class="form-control" name="jud_ber" placeholder="Judul Berita" maxlength="50" autocomplete="off" autofocus="" required/>
+		          	<input type="text" class="form-control" name="jud_ber" placeholder="Judul Berita" maxlength="200" autocomplete="off" autofocus="" required/>
 		        </div>
 		    </div>
 		    <div class="row">
@@ -59,7 +59,7 @@ include '../Config/koneksi.php';
 		    <div class="row">
 		        <div class="form-group col-xs-12 col-md-4">
 		          	<label>Tanggal</label><small class="text-muted"> - Otomatis</small>
-		          	<input type="text" class="form-control" name="tgl" placeholder="berita" value="<?php echo date("Y-m-d"); ?>" readonly/>
+		          	<input type="text" class="form-control" name="tgl" placeholder="berita" value="<?php echo date('Y-m-d'); ?>" readonly/>
 		        </div>
 		    </div>
 		    <div class="row">
@@ -70,6 +70,7 @@ include '../Config/koneksi.php';
 		          	</div>
 		          	<div class="radio">
 		          		<label><input type="radio" value="TIDAK" name="ter_ber"> TIDAK</label>
+		        	</div>
 		        </div>
 		    </div>
 		    <div class="row">
