@@ -31,7 +31,7 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
   <script src="../assets/plugins/jQuery/jQuery-2.2.0.min.js"></script>
   
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition <?php echo $_SESSION['warna'];  ?> sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -80,7 +80,7 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
             <li><a href="#"><i class="fa fa-info-circle"></i> Info </a></li>
           </ul>
         </li>
-        <li class="header">MENU NAVIGASI</li>
+        <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-database"></i> <span>MASTER</span> <i class="fa fa-angle-left pull-right"></i>
@@ -98,6 +98,14 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
             <li><a href="index.php"><i class="fa fa-file-pdf-o"></i> Berita</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cogs"></i> <span>PENGATURAN</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="index.php?pengaturan=warna"><i class="fa fa-cog"></i> Warna Dashbord</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -110,30 +118,34 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
       <section class="content">
         <div class="row">
           <?php 
-          if ((isset($_GET['master']))||(isset($_GET['laporan']))) {
 
-            if ($_GET['master']=='berita') {
+            if (@$_GET['master']=='berita') {
                     include 'Berita/tampil_berita.php';
                 }
-            elseif ($_GET['master']=='kategori') {
+            elseif (@$_GET['master']=='kategori') {
                     include 'Kategori/tampil_kategori.php';
                 }
-            elseif ($_GET['master']=='form_tambah_kategori') {
+            elseif (@$_GET['master']=='tambah_kategori') {
                     include 'Kategori/form_tambah_kategori.php';
                 }
-            elseif ($_GET['master']=='form_edit_kategori') {
+            elseif (@$_GET['master']=='edit_kategori') {
                     include 'Kategori/form_edit_kategori.php';
                 }
-            elseif ($_GET['master']=='form_tambah_berita') {
+            elseif (@$_GET['master']=='tambah_berita') {
                     include 'Berita/form_tambah_berita.php';
                 }
-            elseif ($_GET['master']=='form_edit_berita') {
+            elseif (@$_GET['master']=='edit_berita') {
                     include 'Berita/form_edit_berita.php';
-                }                                
-
-          }else{
-            include 'beranda.php';
-          }
+                }
+            elseif (@$_GET['laporan']=='laporan') {
+                    include '';
+                }                                                                
+            elseif (@$_GET['pengaturan']=='warna') {
+                    include 'Pengaturan/warna.php';
+                }
+            else{
+                    include 'beranda.php';   
+                }
            ?>
         </div>
       </section>
@@ -146,6 +158,7 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
       <b>Version</b> Alpha
     </div>
     <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="index.php">Fahruddin Yusuf H</a>.</strong> All rights reserved.
+    <input type="button" onclick="load()" value="ambil">
   </footer>
 
 </div>
@@ -154,6 +167,5 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
 <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../assets/bootstrap/js/app.min.js"></script>
-
 </body>
 </html>

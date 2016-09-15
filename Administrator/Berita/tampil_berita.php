@@ -35,9 +35,9 @@ $n = 1 ;
 	<div class="panel-body">
 		<?php 
 			if($row = $result->num_rows<=0){
-			 echo 'Data Tidak tersedia '.'<b><a href="index.php?master=form_tambah_berita">Tambah Data</a></b>'; } else { ?>
+			 echo 'Data Tidak tersedia '.'<b><a href="index.php?master=tambah_berita">Tambah Data</a></b>'; } else { ?>
 
-		<a href="index.php?master=form_tambah_berita" class="btn btn-success "><i class="fa fa-plus-circle"></i> Tambah</a>
+		<a href="index.php?master=tambah_berita" class="btn btn-success "><i class="fa fa-plus-circle"></i> Tambah</a>
 		<br><br>
 		<table id="table-data" class="table table-bordered table-striped table-hover">
 			<thead>
@@ -60,7 +60,7 @@ $n = 1 ;
 					<td><?php echo $row->tanggal; ?></td>
 					<td><?php echo $row->terbitkan; ?></td>
 					<td><?php echo $row->nama_admin; ?></td>
-					<td><a href="index.php?master=form_edit_berita&ambil_id_berita=<?php echo $row->id_berita; ?>" class="btn btn-warning"><i class="fa fa-pencil-square"></i> Edit</a></td>
+					<td><a href="index.php?master=edit_berita&ambil_id_berita=<?php echo $row->id_berita; ?>" class="btn btn-warning"><i class="fa fa-pencil-square"></i> Edit</a></td>
 					<td><a href="berita/hapus_berita.php?ambil_id_berita=<?php echo $row->id_berita; ?>" onClick="return confirm('Data Akan Dihapus !')" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a></td>
 				</tr>
 				<?php } ?>
