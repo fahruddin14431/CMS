@@ -6,21 +6,21 @@
 		</div>
 
 	<div class="panel-body">
-		<form method="POST" action="">
+		<form method="POST">
 		    <div class="form-group">
-		        <input type="radio" name="warna" value="skin-blue" checked="<?php echo $_SESSION['warna']=='skin-blue'?'checked':''; ?>" > Biru <small>(Default)</small>
+		        <input type="radio" name="warna" value="skin-blue" > Biru <small>(Default)</small>
 		    </div>
 		    <div class="form-group">
-				<input type="radio" name="warna" value="skin-red" checked="<?php echo $_SESSION['warna']=='skin-red'?'checked':''; ?>" > Merah
+				<input type="radio" name="warna" value="skin-red" > Merah
 			</div>
 			<div class="form-group">
-				<input type="radio" name="warna" value="skin-yellow" checked="<?php echo $_SESSION['warna']=='skin-yellow'?'checked':''; ?>" > Kuning
+				<input type="radio" name="warna" value="skin-yellow" > Kuning
 			</div>
 			<div class="form-group">
-				<input type="radio" name="warna" value="skin-green" checked="<?php echo $_SESSION['warna']=='skin-green'?'checked':''; ?>" > Hijau
+				<input type="radio" name="warna" value="skin-green" > Hijau
 			</div>
 			<div class="form-group">
-				<input type="radio" name="warna" value="skin-purple" checked="<?php echo $_SESSION['warna']=='skin-purple'?'checked':''; ?>" > Ungu
+				<input type="radio" name="warna" value="skin-purple" > Ungu
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-success"><i class="fa fa-check"> Simpan</i></button>
@@ -31,8 +31,17 @@
 </div>
 
 <?php 
-$_SESSION['warna'] = isset($_POST['warna'])?$_POST['warna']:"skin-blue";
-echo $_SESSION['warna'];
+
+$_SESSION['warna'] = isset($_POST['warna'])?$_POST['warna']:"";
+if ($_SESSION['warna']!=""){
+echo '<script type="text/javascript">
+ window.location="index.php";
+ </script>';
+}
+
+
  ?>
+
+ 
 
 </div>

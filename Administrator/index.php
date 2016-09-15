@@ -31,7 +31,8 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
   <script src="../assets/plugins/jQuery/jQuery-2.2.0.min.js"></script>
   
 </head>
-<body class="hold-transition <?php echo $_SESSION['warna'];  ?> sidebar-mini">
+<?php $warna = isset($_SESSION['warna'])?$_SESSION['warna']:'skin-blue'; ?>
+<body class="hold-transition <?php echo $warna  ?> sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -158,7 +159,6 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
       <b>Version</b> Alpha
     </div>
     <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="index.php">Fahruddin Yusuf H</a>.</strong> All rights reserved.
-    <input type="button" onclick="load()" value="ambil">
   </footer>
 
 </div>
