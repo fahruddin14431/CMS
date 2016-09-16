@@ -61,13 +61,13 @@ while ($row = $result->fetch_object()) {
 		        <div class="form-group col-xs-12 col-md-8">
 		          	<label>Terbitkan</label>
 		          	<?php 
-		          	$status = $row->terbitkan=="YA"?'checked':'';
+		          	$status = $row->terbitkan;
 		          	 ?>
 		          	<div class="radio">
-		          		<label><input type="radio" value="YA" name="ter_ber" checked="<?php echo $status; ?>"  required> YA</label>
+		          		<label><input type="radio" value="YA" name="ter_ber" <?php echo $status == "YA" ? 'checked': '' ; ?> required> YA</label>
 		          	</div>
 		          	<div class="radio">
-		          		<label><input type="radio" value="TIDAK" name="ter_ber" checked="<?php echo $status; ?>" > TIDAK</label>
+		          		<label><input type="radio" value="TIDAK" name="ter_ber" <?php echo $status == "TIDAK" ? 'checked': '' ; ?> > TIDAK</label>
 		       		</div>
 		       	</div>
 		    </div>
