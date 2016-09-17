@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="CMS">
+    <meta name="author" content="Fahruddin Yusuf Habibi">
 
     <title>CMS</title>
 
@@ -16,6 +16,9 @@
 
     <!-- Custom CSS -->
     <link href="Assets/bootstrap/css/blog-home.css" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="Assets/font-awesome/css/font-awesome.min.css">
 
 </head>
 
@@ -38,7 +41,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.php">Beranda</a>
+                        <a href="index.php?halaman=beranda">Beranda</a>
                     </li>
                     <li>
                         <a href="index.php?halaman=profil">Profil</a>
@@ -55,7 +58,13 @@
         </div>
         <!-- /.container -->
     </nav>
-
+    <!-- /.nav -->
+    <?php 
+        $page = basename($_SERVER['REQUEST_URI']);
+        if ($page == 'index.php' || $page == 'cms'){
+            include 'slider.php';
+        }    
+    ?>
     <!-- Page Content -->
     <div class="container">
 
@@ -65,70 +74,25 @@
             <div class="col-md-8">
 
                 <?php 
+                    if(@$_GET['halaman']=="beranda"){
+                        include 'beranda.php';
+                    }
+                    elseif(@$_GET['halaman']=="profil"){
+                        include 'profil.php';
+                    }
+                    elseif (@$_GET['halaman']=="kontak") {
+                        include 'kontak.php';
+                    }
+                    elseif (@$_GET['halaman']=="tentang") {
+                        include 'tentang.php';
+                    }
+                    elseif (@$_GET['halaman']=="detail_berita") {
+                        include 'detail_berita.php';
+                    }else{
+                        include 'depan.php';
+                    }   
+                ?>
 
-                if(@$_GET['halaman']=="profil"){
-                    include 'profil.php';
-                }
-                elseif (@$_GET['halaman']=="kontak") {
-                    include 'kontak.php';
-                }
-                elseif (@$_GET['halaman']=="tentang") {
-                    include 'tentang.php';
-                }
-                elseif (@$_GET['halaman']=="detail_berita") {
-                    include 'detail_berita.php';
-                }else{
-                    include 'beranda.php';
-                }
-
-                 ?>
-
-            </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Kategori CMS</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <?php 
-                                    include 'Config/koneksi.php';
-                                    $result1 = $koneksi->query("SELECT * FROM tb_kategori");
-                                    while ($row = $result1->fetch_object()){ ?>
-                                    <li>                                    
-                                        <a href="#"><?php echo $row->nama_kategori; ?></a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
-
-                <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
-
-            </div>
 
         </div>
         <!-- /.row -->
@@ -154,6 +118,13 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+
+     <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 </body>
 
