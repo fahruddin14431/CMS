@@ -8,7 +8,7 @@ $id_kat = $_POST['kod_kat'];
 $isi = ucfirst($_POST['isi_ber']);
 $tgl = $_POST['tgl'];
 $ter = $_POST['ter_ber'];
-$ket = $_POST['ket_ber']
+$ket = $_POST['ket_ber'];
 
 $foto=basename($_FILES['foto_ber']['name']);
 $t_name=$_FILES['foto_ber']['tmp_name'];
