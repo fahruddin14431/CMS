@@ -1,4 +1,4 @@
-<br><br><br><br>
+<br><br><br>
     <hr class="hidden-lg hidden-md hidden-xs">
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4 hidden-xs">

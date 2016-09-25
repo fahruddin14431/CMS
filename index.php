@@ -52,6 +52,9 @@
                     <li>
                         <a href="index.php?halaman=tentang">Tentang</a>
                     </li>
+                    <li>
+                        <a href="Login/login.php" target="blank">Login</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
