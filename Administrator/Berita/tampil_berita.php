@@ -32,7 +32,7 @@ $n = 1 ;
 			<h3 class="panel-tittle"><b>Daftar Berita</b></h3>
 		</div>
 
-	<div class="panel-body">
+	<div class="panel-body table-responsive">
 		<?php 
 			if($row = $result->num_rows<=0){
 			 echo 'Data Tidak tersedia '.'<b><a href="index.php?master=tambah_berita">Tambah Data</a></b>'; } else { ?>
