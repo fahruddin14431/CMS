@@ -60,7 +60,19 @@ $n = 1 ;
 <script>
   $(document).ready(function(){
     $('#table-data').DataTable({
-        rowReorder: true,
+        // setting language
+    	"language" : {
+    		"search": "Cari : ",
+    		"zeroRecords": "Data Tidak Ditemukan",
+    		"lengthMenu" : "Tampilkan _MENU_ Data",
+    		"info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ Data",
+    		"paginate": {
+    			"next": 	"Selanjutnya",
+    			"previous": "Sebelumnya"
+    		}
+    	},
+
+		// disabled ordering
         columnDefs: [
             { orderable: false, className: 'reorder', targets: 3 },
             { orderable: false, className: 'reorder', targets: 4 },

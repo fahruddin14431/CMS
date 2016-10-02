@@ -53,7 +53,7 @@ include '../Config/koneksi.php';
 		    <div class="row">
 		        <div class="form-group col-xs-12 col-md-12">
 		          	<label>Isi Berita</label>
-		          	<textarea name="isi_ber" rows="10" class="form-control" required></textarea>
+		          	<textarea name="isi_ber" id="editor" rows="10" class="form-control" required></textarea>
 		        </div>
 		    </div>
 		    <div class="row">
@@ -106,5 +106,9 @@ include '../Config/koneksi.php';
 </div>
 
 </div>
+
+<SCRIPT TYPE="text/javascript">
+	CKEDITOR.replace('editor');
+</SCRIPT>
 
 
