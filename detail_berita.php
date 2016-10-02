@@ -29,7 +29,11 @@ $result = $koneksi->query( "SELECT  b.id_berita,
                 $foto = substr($ganti_link, 6);
             ?>
         <hr>
-        <img class="img-responsive" src="<?php echo $foto ?>" alt="">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+                <img class="img-responsive" src="<?php echo $foto ?>" alt="">
+            </div>
+        </div>
         <hr>
         <p class="text-justify">
         	<?php echo $isi =  $row->isi_berita; ?>

@@ -5,7 +5,7 @@ include 'Config/koneksi.php';
 // pagination
 
 $start = 0;
-$limit = 3;
+$limit = 2;
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -53,17 +53,20 @@ $result = $koneksi->query("SELECT   b.id_berita,
             <?php 
                 $isi =  $row->isi_berita;
 
-                 // cek kondisi banyak kata berita
-                if(strlen($isi)>30){
-                    $bagi_isi = explode(" ", $isi, 33);
-                    for ($i=0; $i <32 ; $i++) { 
+                // cek banyak kata berita
+                $bagi_isi = explode(" ", $isi);
+
+                if(count($bagi_isi)>=35){
+                    for ($i=0; $i <35 ; $i++) { 
                         echo $bagi_isi[$i]." ";
                     }
                 }else{
-                    echo $isi;
+                    foreach ($bagi_isi as $value) {
+                        echo $value;
+                    }
                 }
-            ?>
-        </p>                    
+                    ?>
+                </p>           
         <a class="btn btn-primary" href="index.php?halaman=detail_berita&id_berita=<?php echo $row->id_berita ?>">
             Selanjutnya <span class="glyphicon glyphicon-chevron-right"></span>
         </a>

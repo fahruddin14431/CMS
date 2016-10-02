@@ -29,6 +29,9 @@ $result = $koneksi->query("SELECT * FROM tb_admin WHERE user='$user_name'");
   <link rel="stylesheet" href="../assets/bootstrap/css/skins/_all-skins.min.css">
   <!-- jQuery 2.2.0 -->
   <script src="../assets/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+  <!-- Ckeditor -->
+  <script src="../assets/plugins/ckeditor/ckeditor.js"></script>
+
   
 </head>
 <?php $warna = isset($_SESSION['warna'])?$_SESSION['warna']:'skin-blue'; ?>
